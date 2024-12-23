@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Order, OrderItem, Orders, OrderStatus, Role};
+use App\Models\{OrderItem, Orders, OrderStatus, Role};
 use Carbon\Exceptions\UnknownSetterException;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Database\Eloquent\Collection;
@@ -23,13 +23,13 @@ class OrdersController extends Base_Controller
      * Store a newly created resource in storage.
      */
 
-  /*  public function store(Request $request)
+  public function store(Request $request)
     {
         DB::beginTransaction();
         $validator = Validator::make($request->all() , [
             'total_invoice' => ['required'] ,
             'items' => ['array' , 'present'] ,
-            'items.*.medicine_id' => ['required'] ,
+            'items.*.product_id' => ['required'] ,
             'items.*.amount' => ['required'] ,
             'items.*.unit_price' => ['required'] ,
 
@@ -39,14 +39,15 @@ class OrdersController extends Base_Controller
             DB::rollBack();
             return $this->sendError($validator->errors());
         }
-        $order = Order::create([
+    }
+      /*  $order = Orders::create([
             'customer_id' => auth()->id() ,
             'total_invoice' => $request['total_invoice']
         ]);
         foreach($request['items'] as $item){
                 OrderItem::create([
                     'order_id' => $order->id ,
-                    'medicine_id' => $item['medicine_id'] ,
+                    'user_id' => $item['product_id'] ,
                     'amount' => $item['amount'],
                     'unit_price' => $item['unit_price']
                 ]);

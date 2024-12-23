@@ -19,8 +19,11 @@ class Orders extends Model
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d'
     ];
+
+    protected $fillable = ['user_id', 'total_invoice'];
+
     public function user() :belongsTo{
-        return $this->belongsTo(User::class , 'customer_id');
+        return $this->belongsTo(User::class , 'user_id');
     }
     public function items(): HasMany
     {

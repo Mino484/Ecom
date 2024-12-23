@@ -17,6 +17,10 @@ class OrderItem extends Model
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d'
     ];
+
+
+    protected $fillable = ['order_id', 'product_id', 'amount', 'unit_price'];
+
     public function product(){
         return $this->belongsTo(products::class);
     }
