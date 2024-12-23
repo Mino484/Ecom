@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\MedicineResource;
-use App\Models\{Category, Company, ExpirationMedicine, FavoriteMedicine, Medicine, products, Role, Stores};
-use Illuminate\Http\{JsonResponse, Request, Resources\Json\AnonymousResourceCollection};
+use App\Models\{Category, Stores,  Favorites, products, Role,};
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\{DB, Validator};
 
 class ProductsController extends Base_Controller

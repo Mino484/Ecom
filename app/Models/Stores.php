@@ -14,6 +14,11 @@ class Stores extends Model
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d'
     ];
+
+
+    protected $fillable = ['name', 'location', 'description', 'image'];
+
+    // A store can have many products
     public function products(): HasMany
     {
         return $this->hasMany(products::class);

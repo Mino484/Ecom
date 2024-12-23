@@ -19,6 +19,15 @@ class products extends Model
         'updated_at' => 'datetime:Y-m-d'
     ];
 
+    protected $fillable = ['store_id', 'name', 'description', 'price', 'image'];
+
+    // A product belongs to a store
+
+
+
+
+
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class );
@@ -60,7 +69,7 @@ class products extends Model
 
         $query->when($filters['search'] ?? false , fn($query , $search) =>
                 $query -> where  ('name_EN' , 'REGEXP' , $search)
-                       -> orWhere('economic_name_AR'   , 'REGEXP' , $search)
+                       -> orWhere('name_AR'   , 'REGEXP' , $search)
         );
 
 

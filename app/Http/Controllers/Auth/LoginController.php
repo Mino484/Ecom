@@ -38,6 +38,7 @@ class LoginController extends Base_Controller
     {
         $user = Auth::user(); // Fetch the authenticated user
 
+
                 return response()->json(['user' => $user], 200);
     }
 }

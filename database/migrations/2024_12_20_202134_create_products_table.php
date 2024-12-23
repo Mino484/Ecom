@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
 
-    Schema::create('Products', function (Blueprint $table) {
+    Schema::create('products', function (Blueprint $table) {
         $table->id('id');
         $table->foreignId('category_id');
-                   $table->foreignId(column: 'StoreId');
+                   $table->foreignId(column: 'store_id');
 
         $table->string('name_EN');
         $table->string('name_AR');
@@ -23,7 +23,7 @@ return new class extends Migration
         $table->integer('Stock');
 
 
-        $table->string('image')->nullable();
+        $table->binary('image')->nullable();
         $table->integer('unit_price');
         $table->timestamps();
 
