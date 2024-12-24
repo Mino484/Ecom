@@ -23,7 +23,7 @@ Route::middleware(['auth:api']) ->group(function(){
 
 
 // Logout Route
-Route::post('/logout', [LogoutController::class, 'logout'])->middleware('auth:api');
+Route::post('/logout', [LogoutController::class, 'logout']) ;
     Route::resource('order'   , OrdersController::class);
     Route::resource('products', ProductsController::class);
     Route::resource('category', CategoryController::class);

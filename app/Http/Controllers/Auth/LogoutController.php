@@ -33,8 +33,8 @@ class LogoutController extends Base_Controller
 }
 
 
-
-/*<?php
+/*
+<?php
 
 namespace App\Http\Controllers\Auth;
 
