@@ -20,7 +20,10 @@ Route::post('login', [LoginController::class , 'login']);
 Route::middleware(['auth:api']) ->group(function(){
         Route::post('/update-profile', [RegisteredUserController::class, 'updateProfile']);
 
-   Route::post('logout', LogoutController::class);
+
+
+// Logout Route
+Route::post('/logout', [LogoutController::class, 'logout'])->middleware('auth:api');
     Route::resource('order'   , OrdersController::class);
     Route::resource('products', ProductsController::class);
     Route::resource('category', CategoryController::class);
